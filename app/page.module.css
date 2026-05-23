@@ -1,0 +1,470 @@
+.main {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #1a202c;
+  background-color: #fcfbf9; /* Slightly warmer, richer ivory */
+  min-height: 100vh;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+.serif {
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: #fcfbf9;
+  border-bottom: 1px solid #e2e8f0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.navLogo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.navLogo span {
+  color: #2563eb; /* Royal blue accent for the logo */
+}
+
+.navLinks {
+  display: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .navLinks { display: flex; }
+}
+
+.navLink {
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color 0.2s;
+}
+
+.navLink:hover { color: #ea580c; } /* Warm orange hover */
+
+.navButton {
+  background-color: #ea580c; /* Burnt Orange for CTA */
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 2px 4px rgba(234, 88, 12, 0.2);
+}
+
+.navButton:hover { 
+  background-color: #c2410c; 
+  transform: translateY(-1px);
+}
+
+/* Centered Hero */
+.hero {
+  padding: 8rem 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #0f172a;
+  line-height: 1.1;
+  margin: 0 auto 1.5rem auto;
+}
+
+@media (min-width: 768px) {
+  .heroTitle { font-size: 4.5rem; }
+}
+
+.heroTitleHighlight {
+  color: #1e3a8a; /* Deep navy emphasis */
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto 3rem auto;
+  font-weight: 300;
+}
+
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.primaryButton, .secondaryButton {
+  padding: 1.125rem 2.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-size: 1rem;
+}
+
+.primaryButton {
+  background-color: #ea580c; /* Burnt Orange */
+  color: white;
+  box-shadow: 0 4px 6px -1px rgba(234, 88, 12, 0.2);
+}
+
+.primaryButton:hover { 
+  background-color: #c2410c;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 8px -1px rgba(234, 88, 12, 0.3);
+}
+
+.secondaryButton {
+  background-color: white;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+}
+
+.secondaryButton:hover {
+  background-color: #f8fafc;
+  border-color: #94a3b8;
+}
+
+/* General Section Styles */
+.section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 400;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+}
+
+.sectionSubtitle {
+  font-size: 1.125rem;
+  color: #475569;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Trust / Why Us Cards */
+.trustGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .trustGrid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.trustCard {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-top: 4px solid #2563eb; /* Royal Blue accent */
+  padding: 2.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.trustCard:nth-child(2) {
+  border-top-color: #0284c7; /* Sky blue accent for middle card */
+}
+
+.trustCard:nth-child(3) {
+  border-top-color: #4f46e5; /* Indigo accent for last card */
+}
+
+.trustCard h3 {
+  font-size: 1.25rem;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
+}
+
+.trustCard p {
+  color: #475569;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* Programs / Levels (Split Columns) */
+.programsWrapper {
+  background-color: white;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.programsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 800px) {
+  .programsGrid { grid-template-columns: 1fr 1fr; gap: 4rem; }
+}
+
+.programColumn {
+  display: flex;
+  flex-direction: column;
+  background: #fcfbf9;
+  border: 1px solid #e2e8f0;
+  padding: 3rem;
+  border-radius: 4px;
+}
+
+.programHeaderMyp {
+  border-bottom: 2px solid #0284c7; /* Sky blue specific to MYP */
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.programHeaderDp {
+  border-bottom: 2px solid #4f46e5; /* Indigo specific to DP */
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.programTitle {
+  font-size: 2rem;
+  color: #0f172a;
+  margin: 0 0 0.5rem 0;
+  font-weight: 400;
+}
+
+.programPrice {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ea580c; /* Orange price to tie into CTA */
+  margin: 0;
+}
+
+.listTitle {
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+}
+
+.programList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem 0;
+  flex-grow: 1;
+}
+
+.programList li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+  color: #475569;
+  font-size: 0.9375rem;
+}
+
+.programList li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #94a3b8;
+}
+
+.emailBox {
+  background: #eff6ff; /* Soft blue background instead of white */
+  border: 1px solid #bfdbfe;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.emailBox p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 0.8125rem;
+  color: #1e3a8a; /* Darker blue text */
+}
+
+.actionButton {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #0f172a;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+}
+
+.actionButton:hover { background-color: #1e3a8a; }
+
+/* Schedule Table */
+.tableContainer {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table th {
+  background-color: #1e3a8a; /* Richer navy for table header */
+  color: white;
+  padding: 1.25rem 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.table td {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  color: #334155;
+  font-size: 0.9375rem;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.table tr:hover td {
+  background-color: #f8fafc; /* Subtle hover effect on rows */
+}
+
+.table strong {
+  color: #0f172a;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+/* Details & Tutor Split Layout */
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+}
+
+@media (min-width: 800px) {
+  .splitGrid { grid-template-columns: 1fr 1fr; align-items: start; }
+}
+
+.tutorBox {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.tutorPlaceholder {
+  background: linear-gradient(135deg, #e0e7ff 0%, #bae6fd 100%); /* Elegant blue gradient */
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.tutorPlaceholder span {
+  color: #1e3a8a;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tutorContent {
+  padding: 2.5rem;
+}
+
+.tutorContent h3 {
+  color: #0f172a;
+  font-size: 1.5rem;
+  margin: 0 0 1rem 0;
+}
+
+.tutorContent p {
+  color: #475569;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+.detailsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.detailItem h4 {
+  color: #2563eb; /* Royal blue for detail headings */
+  font-size: 1.125rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.detailItem p {
+  color: #334155;
+  margin: 0;
+  font-size: 0.9375rem;
+}
+
+/* Footer CTA */
+.footer {
+  background-color: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+}
+
+.footerTitle {
+  font-size: 2.5rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 400;
+}
+
+.footerSubtitle {
+  color: #94a3b8;
+  margin: 0 0 3rem 0;
+  font-size: 1.125rem;
+}
+
+.footerBottom {
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  color: #64748b;
+  font-size: 0.875rem;
+}
