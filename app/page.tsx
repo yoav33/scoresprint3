@@ -1,40 +1,83 @@
-import React from 'react';
+import React, { type CSSProperties } from 'react';
 import styles from './page.module.css';
 
 // TODO: Replace with your actual receiving email
 const contactEmail = "yoavgrinberg1@gmail.com"; 
 
 // Pre-formatted email templates
-const mypSubject = encodeURIComponent("Registration Request: MYP5 Math Prep Course");
+const freeSessionSubject = encodeURIComponent("Registration Request: FREE Readiness Session (Aug 13)");
+const freeSessionBody = encodeURIComponent(`Hello,
+
+I would like to reserve a spot for the Free Readiness Session: "How to Start MYP5 or DP Math Strong" on August 13. Here are our details:
+%0D%0A %0D%0A
+Parent/Guardian Name: %0D%0A
+Student Name: %0D%0A
+Contact Phone Number: %0D%0A
+Entering Grade (MYP5, DP1, or CP1): %0D%0A
+How did you hear about us? %0D%0A
+%0D%0A
+Thank you,
+`);
+
+const mypSubject = encodeURIComponent("Registration Request: MYP5 Math Launchpad");
 const mypBody = encodeURIComponent(`Hello,
 
-I would like to register my child for the MYP5 Math Prep Course (€50). Here are our details:
+I would like to register my child for the MYP5 Math Launchpad Course (€59). Here are our details:
 
-Parent/Guardian Name: 
-Student Name: 
-Contact Phone Number: 
-Current School/Grade: 
-Any specific math concerns?: 
+Parent/Guardian Name: %0D%0A 
+Student Name: %0D%0A
+Contact Phone Number: %0D%0A
+Current School: %0D%0A
+Any specific math concerns?: %0D%0A
+How did you hear about us? %0D%0A
 
 Thank you,
 `);
 
-const dpSubject = encodeURIComponent("Registration Request: DP/CP1 Math Prep Course");
+const dpSubject = encodeURIComponent("Registration Request: DP1 Math Jumpstart");
 const dpBody = encodeURIComponent(`Hello,
 
-I would like to register my child for the DP/CP1 Math Prep Course. Here are our details:
+I would like to register my child for the DP1 Math Jumpstart Course. Here are our details:
 
-Parent/Guardian Name: 
-Student Name: 
-Contact Phone Number: 
-Current School: 
+Parent/Guardian Name: %0D%0A
+Student Name: %0D%0A
+Contact Phone Number: %0D%0A
+Current School: %0D%0A
+How did you hear about us? %0D%0A
 
 Please indicate your preference (Keep one, delete the other):
-[ ] 3-Day Refresher + DP Prep Course (€100)
-[ ] 2-Day DP Prep Course (€75)
+[ ] DP1 Math Jumpstart Plus - 3-Day Course (€139)
+[ ] DP1 Math Jumpstart Core - 2-Day Course (€99)
 
 Thank you,
 `);
+
+// Reusable inline styles for upgraded CTAs
+const primaryCtaStyle: CSSProperties = {
+  backgroundColor: '#ea580c', // brand orange
+  color: '#ffffff',
+  padding: '16px 32px',
+  borderRadius: '8px',
+  textDecoration: 'none',
+  fontWeight: '600',
+  fontSize: '1.1rem',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '8px',
+  boxShadow: '0 4px 6px -1px rgba(234, 88, 12, 0.3), 0 2px 4px -1px rgba(234, 88, 12, 0.2)',
+  border: '2px solid #ea580c',
+  transition: 'all 0.2s ease-in-out',
+  width: '100%',
+  textAlign: 'center'
+};
+
+const secondaryCtaStyle: CSSProperties = {
+  ...primaryCtaStyle,
+  backgroundColor: 'transparent',
+  color: '#ea580c',
+  boxShadow: 'none',
+};
 
 export default function HomePage() {
   return (
@@ -42,155 +85,215 @@ export default function HomePage() {
       {/* Navigation */}
       <nav className={styles.nav}>
         <a href="#" className={styles.navLogo}>Score<span>Sprint</span></a>
+        <a href="#programs" className={styles.mobileNavButton}>Register</a>
         <div className={styles.navLinks}>
-          <a href="#approach" className={styles.navLink}>Our Approach</a>
-          <a href="#programs" className={styles.navLink}>Levels</a>
-          <a href="#schedule" className={styles.navLink}>Schedule</a>
-          <a href="#programs" className={styles.navButton}>Register Now</a>
+          <a href="#free-session" className={styles.navLink}>Free Session</a>
+          <a href="#programs" className={styles.navLink}>Bootcamps</a>
+          <a href="#about-us" className={styles.navLink}>About Us</a>
+          <a href="#approach" className={styles.navLink}>Why Join</a>
+          <a href="#programs" className={styles.navButton} style={{ backgroundColor: '#1e293b', color: 'white' }}>Register Now</a>
         </div>
       </nav>
 
       {/* Hero Section */}
       <header className={styles.hero}>
         <h1 className={`${styles.heroTitle} ${styles.serif}`}>
-          Master Math <span className={styles.heroTitleHighlight}>Before</span> the Year Begins.
+          Start IB Math with <span className={styles.heroTitleHighlight}>Confidence</span>, Not Panic.
         </h1>
         <p className={styles.heroSubtitle}>
-          A definitive, logical head-start in Mathematics for incoming MYP5 and DP/CP1 students. Build true confidence, master concepts, and gain an edge before the term starts.
+          Start with our free standalone readiness session, or dive into our comprehensive online bootcamps designed to help students entering MYP5 or DP1/CP1 refresh key skills and fill gaps.
         </p>
         <div className={styles.heroButtons}>
-          <a href="#programs" className={styles.primaryButton}>View Course Levels</a>
-          <a href="#programs" className={styles.secondaryButton}>Register for Bootcamp</a>
+          <a href="#free-session" style={{...primaryCtaStyle, width: 'auto'}}>
+            Join Free Session <span aria-hidden="true">→</span>
+          </a>
+          <a href="#programs" style={{...secondaryCtaStyle, border: '2px solid #1e293b', color: '#1e293b', width: 'auto'}}>
+            View Bootcamps
+          </a>
         </div>
       </header>
+
+      {/* Free Readiness Session (Upgraded & Appealing) */}
+      <section id="free-session" className={styles.freeSession}>
+        {/* Decorative background accent */}
+        <div className={styles.freeSessionAccent}></div>
+
+        <div className={styles.freeSessionHeader}>
+          <div className={styles.freeSessionBadge}>
+            📅 August 13 | Live Online
+          </div>
+          <h2 className={`${styles.serif} ${styles.freeSessionTitle}`}>
+            Free Readiness Session:<br/>How to Start MYP5 or DP Math Strong
+          </h2>
+          <p className={styles.freeSessionDescription}>
+            A high-impact, completely standalone taster session covering common mistakes, course expectations, and the exact strategies needed to prepare effectively. No bootcamp registration required!
+          </p>
+        </div>
+
+        <div className={styles.freeSessionGrid}>
+          <div className={styles.freeSessionInfoCard}>
+            <h3 className={styles.freeSessionCardTitle}>What to expect:</h3>
+            <ul className={styles.freeSessionList}>
+              <li className={styles.freeSessionListItem}>
+                <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
+                <span className={styles.freeSessionListText}><strong>Course Overview</strong> & Expectations</span>
+              </li>
+              <li className={styles.freeSessionListItem}>
+                <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
+                <span className={styles.freeSessionListText}><strong>Diagnostic-style</strong> practice questions</span>
+              </li>
+              <li className={styles.freeSessionListItem}>
+                <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
+                <span className={styles.freeSessionListText}><strong>Strategic Advice</strong> on AA vs AI & MYP-to-DP</span>
+              </li>
+              <li className={styles.freeSessionListItem}>
+                <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
+                <span className={styles.freeSessionListText}><strong>Live Q&A</strong> with expert tutors</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className={styles.freeSessionCtaPanel}>
+             <p className={styles.freeSessionCtaText}>
+               Spots are limited to keep the session interactive. Reserve yours early.
+             </p>
+             <a href={`mailto:${contactEmail}?subject=${freeSessionSubject}&body=${freeSessionBody}`} style={{...primaryCtaStyle, fontSize: '1.2rem', padding: '20px 32px'}}>
+               Reserve Your Free Spot <span aria-hidden="true">→</span>
+             </a>
+             <p className={styles.freeSessionFinePrint}>
+               *This 45-minute free session is independent of our paid bootcamps.
+             </p>
+          </div>
+        </div>
+      </section>
 
       {/* Trust / Approach Section */}
       <section id="approach" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Thrive in IB Math.</h2>
+          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Why Join the Bootcamp?</h2>
           <p className={styles.sectionSubtitle}>
-            Our intensive approach goes beyond memorization to ensure students actually understand the underlying logic of the curriculum.
+            Clear explanations focused on understanding, not memorization.
           </p>
         </div>
 
         <div className={styles.trustGrid}>
           <div className={styles.trustCard}>
-            <h3 className={styles.serif}>Targeted Curriculum</h3>
-            <p>We rigorously focus on the precise concepts required for the MYP and DP syllabus, eliminating fluff and focusing strictly on academic fundamentals.</p>
+            <h3 className={styles.serif}>Small-Group Live Teaching</h3>
+            <p>Live online bootcamp with limited spots to keep the course interactive. Every session includes replay access so you never miss a concept.</p>
           </div>
           <div className={styles.trustCard}>
-            <h3 className={styles.serif}>Understanding-First</h3>
-            <p>We prioritize the logic behind mathematical concepts. When students understand the "why," they build true academic resilience for tests and exams.</p>
+            <h3 className={styles.serif}>Practical Preparation</h3>
+            <p>Designed specifically to prepare you for the crucial first weeks of school. Includes comprehensive study guides and take-home practice.</p>
           </div>
           <div className={styles.trustCard}>
-            <h3 className={styles.serif}>Built for Real Schedules</h3>
-            <p>Conducted fully online with comprehensive take-home materials, allowing students to prepare effectively even while traveling before the term begins.</p>
+            <h3 className={styles.serif}>Accessible Anywhere</h3>
+            <p>Conducted fully online, making it perfect for students unable to attend in person due to late-summer travel or distance.</p>
           </div>
         </div>
       </section>
 
       {/* Programs / Levels Section */}
-      <section id="programs" className={`${styles.section} ${styles.programsWrapper}`}>
-        <div className={styles.sectionHeader}>
-          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Tailored to Your Level.</h2>
+      <section id="programs" className={`${styles.section} ${styles.programsSection}`}>
+        <div className={`${styles.sectionHeader} ${styles.programsHeader}`}>
+          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Full Bootcamp Options</h2>
           <p className={styles.sectionSubtitle}>
-            Select the specific academic track designed for your child's upcoming school year.
+            Ready to dive deeper? Choose the paid bootcamp package that fits your upcoming school year and preparation needs.
           </p>
         </div>
 
-        <div className={styles.programsGrid}>
-          {/* Column 1: MYP */}
-          <article className={styles.programColumn}>
-            <div className={styles.programHeaderMyp}>
-              <h2 className={`${styles.programTitle} ${styles.serif}`}>Incoming MYP5 Math</h2>
-              <p className={styles.programPrice}>€50 Total</p>
+        <div className={styles.programsGridOverride}>
+          
+          {/* Column 1: MYP5 Launchpad */}
+          <article className={styles.programCard}>
+            <div className={styles.programCardHeader}>
+              <h2 className={`${styles.serif} ${styles.programCardTitle}`}>MYP5 Math Launchpad</h2>
+              <div className={styles.programPriceRow}>
+                <span className={styles.programPriceValue}>€59</span>
+                <span className={styles.programDuration}>/ 1-Day</span>
+              </div>
             </div>
             
-            <div className={styles.listTitle}>Course Structure & Coverage</div>
-            <ul className={styles.programList}>
-              <li><strong>1-Day Intensive:</strong> August 19, 12:00 - 15:00 live online session.</li>
-              <li><strong>Core Recap:</strong> Algebra, Roots and Exponents, Logarithms, Quadratics, and Trigonometry.</li>
-              <li><strong>Resources:</strong> Comprehensive study guide provided.</li>
-              <li><strong>Guidance:</strong> Dedicated Q&A regarding IB and Mathematics expectations.</li>
-            </ul>
-
-            <div className={styles.emailBox}>
-              <p>Click below to open a pre-filled registration email. Add your details and send to reserve a spot.</p>
-              <a href={`mailto:${contactEmail}?subject=${mypSubject}&body=${mypBody}`} className={styles.actionButton}>
+            <div className={styles.programCardBody}>
+              <p className={styles.programCardText}>
+                For students entering MYP5 who want a clear, confidence-building recap of essential topics.
+              </p>
+              <div className={styles.programListTitle}>What&apos;s Covered:</div>
+              <ul className={styles.programFeatureList}>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Algebra, Roots & Exponents</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Logarithms & Quadratics</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Functions & Trigonometry</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Live teaching & guided practice</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Study guide & replay access</li>
+              </ul>
+              <a href={`mailto:${contactEmail}?subject=${mypSubject}&body=${mypBody}`} style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
                 Register for MYP5
               </a>
             </div>
           </article>
 
-          {/* Column 2: DP / CP1 */}
-          <article className={styles.programColumn}>
-            <div className={styles.programHeaderDp}>
-              <h2 className={`${styles.programTitle} ${styles.serif}`}>IB DP / CP1 Math</h2>
-              <p className={styles.programPrice}>€75 or €100 Options</p>
+          {/* Column 2: DP1 Core */}
+          <article className={styles.programCard}>
+            <div className={styles.programCardHeader}>
+              <h2 className={`${styles.serif} ${styles.programCardTitle}`}>DP1 Jumpstart Core</h2>
+              <div className={styles.programPriceRow}>
+                <span className={styles.programPriceValue}>€99</span>
+                <span className={styles.programDuration}>/ 2-Days</span>
+              </div>
             </div>
 
-            <div className={styles.listTitle}>Course Structure & Coverage</div>
-            <ul className={styles.programList}>
-              <li><strong>Kickoff Session:</strong> August 19, 12:00 - 15:00 live online start.</li>
-              <li><strong>Option 1 (€100):</strong> 3-day complete package. Extensive refresher work on pre-DP foundations plus the DP Prep Course.</li>
-              <li><strong>Option 2 (€75):</strong> 2-day focused DP/CP1 Prep Course.</li>
-              <li><strong>Resources:</strong> Take-home review materials to maintain momentum.</li>
-            </ul>
-
-            <div className={styles.emailBox}>
-              <p>Click below to open a pre-filled registration email. Choose your tier and add your details.</p>
-              <a href={`mailto:${contactEmail}?subject=${dpSubject}&body=${dpBody}`} className={styles.actionButton}>
-                Register for DP / CP1
+            <div className={styles.programCardBody}>
+              <p className={styles.programCardText}>
+                For students starting DP1 or CP1 who want a strong foundation before school begins.
+              </p>
+              <div className={styles.programListTitle}>What&apos;s Covered:</div>
+              <ul className={styles.programFeatureList}>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Essential Algebra & Logs</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Functions & Trigonometry</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> DP-style problem solving</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> MYP-to-DP transition guide</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Take-home materials & replays</li>
+              </ul>
+              <a href={`mailto:${contactEmail}?subject=${dpSubject}&body=${dpBody}`} style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
+                Register for Core
               </a>
             </div>
           </article>
-        </div>
-      </section>
 
-      {/* Schedule Table */}
-      <section id="schedule" className={styles.section}>
-        <div className={styles.sectionHeader}>
-          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>What We Cover</h2>
-        </div>
+          {/* Column 3: DP1 Plus */}
+          <article className={`${styles.programCard} ${styles.programCardFeatured}`}>
+            <div className={styles.programCardBadge}>Most Comprehensive</div>
+            <div className={`${styles.programCardHeader} ${styles.programCardHeaderFeatured}`}>
+              <h2 className={`${styles.serif} ${styles.programCardTitle} ${styles.programCardTitleFeatured}`}>DP1 Jumpstart Plus</h2>
+              <div className={styles.programPriceRow}>
+                <span className={`${styles.programPriceValue} ${styles.programPriceValueFeatured}`}>€139</span>
+                <span className={`${styles.programDuration} ${styles.programDurationFeatured}`}>/ 3-Days</span>
+              </div>
+            </div>
 
-        <div className={styles.tableContainer}>
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Theme</th>
-                <th>Focus Areas</th>
-                <th>Target Students</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Day 1</strong>August 19</td>
-                <td>Live Kickoff & Fundamentals</td>
-                <td>Logical recap of Algebra, Roots & Exponents, Logarithms, Quadratics, Trigonometry, plus IB Math Q&A.</td>
-                <td>MYP + DP</td>
-              </tr>
-              <tr>
-                <td><strong>Day 2</strong>Take-Home / Live</td>
-                <td>DP/CP1 Preparation</td>
-                <td>Pacing adjustments, expectation setting, and introduction to rigorous DP problem-solving logic.</td>
-                <td>DP/CP1 Only</td>
-              </tr>
-              <tr>
-                <td><strong>Day 3</strong>Take-Home / Live</td>
-                <td>Extended Refresher</td>
-                <td>Deep-dive into pre-DP foundations to completely eliminate the transition shock of the Diploma Program.</td>
-                <td>DP/CP1 Only</td>
-              </tr>
-            </tbody>
-          </table>
+            <div className={styles.programCardBody}>
+              <p className={styles.programCardText}>
+                The full preparation package for students who want the strongest possible start to DP math.
+              </p>
+              <div className={styles.programListTitle}>Everything in Core, Plus:</div>
+              <ul className={styles.programFeatureList}>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Extra refresher practice</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Deeper AA/AI problem solving</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> More guided exercises</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> <strong>Exclusive:</strong> "Week-one rescue" Q&A after school starts</li>
+              </ul>
+              <a href={`mailto:${contactEmail}?subject=${dpSubject}&body=${dpBody}`} style={primaryCtaStyle}>
+                Register for Plus
+              </a>
+            </div>
+          </article>
+
         </div>
       </section>
 
       {/* Details & Tutors */}
-      <section className={styles.section}>
+      <section id="about-us" className={styles.section}>
         <div className={styles.sectionHeader}>
-          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Everything You Need to Know</h2>
+          <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Led by Experience</h2>
         </div>
 
         <div className={styles.splitGrid}>
@@ -200,9 +303,9 @@ export default function HomePage() {
               <span>Instructor Profile</span>
             </div>
             <div className={styles.tutorContent}>
-              <h3 className={`${styles.serif}`}>Led by Elite Alumni</h3>
+              <h3 className={`${styles.serif}`}>UWCM DP Alumni & Expert Tutors</h3>
               <p>
-                Our sessions are exclusively instructed by UWC Maastricht DP alumni who have successfully navigated the exact curriculum your child is entering. With top-tier Mathematics results in AI HL (7/7) and AA HL (6/7) and currently studying applied physics and mechanical engineering, they know what it takes to secure top marks and build genuine understanding.
+                Our live online bootcamps are led by highly experienced tutors and UWC Maastricht DP alumni who excelled in AI HL and AA HL. They know exactly what the leap from MYP to DP entails, common pitfalls to avoid, and how to effectively bridge the gap.
               </p>
             </div>
           </div>
@@ -210,37 +313,46 @@ export default function HomePage() {
           {/* Right: Details List */}
           <div className={styles.detailsList}>
             <div className={styles.detailItem}>
-              <h4>Dates & Time</h4>
-              <p>Live Kickoff: August 19, 12:00 - 15:00 CEST. Subsequent days utilize structured take-home materials and follow-up reviews.</p>
+              <h4>Target Audience</h4>
+              <p>Students entering MYP5, DP1, or CP1 who want to eliminate the back-to-school transition shock.</p>
             </div>
             <div className={styles.detailItem}>
               <h4>Location & Delivery</h4>
-              <p>100% Online. Accessible from anywhere, designed specifically to accommodate international families and late-summer travel schedules.</p>
+              <p>100% Online. Accessible from anywhere to accommodate international families. Replay access included for all sessions.</p>
             </div>
             <div className={styles.detailItem}>
-              <h4>Requirements</h4>
-              <p>A stable internet connection, a quiet workspace, standard stationary, and the student's regular calculator (GDC if applicable).</p>
+              <h4>Materials Included</h4>
+              <p>Comprehensive study guides, guided practice exercises, diagnostic questions, and take-home review materials.</p>
             </div>
             <div className={styles.detailItem}>
               <h4>Tuition</h4>
-              <p>MYP5 Course: €50. DP/CP1 Courses: €75 to €100 depending on the selected plan.</p>
+              <p>MYP5 Launchpad: €59. DP1 Core: €99. DP1 Plus: €139. (Readiness Session: Free)</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
+      {/* Footer CTA (Upgraded Professional Design) */}
       <footer className={styles.footer}>
-        <h2 className={`${styles.footerTitle} ${styles.serif}`}>Ready to secure your spot?</h2>
-        <p className={styles.footerSubtitle}>Spaces are strictly limited to ensure quality instruction.</p>
-        
-        <a href="#programs" className={styles.primaryButton}>
-          Select Your Program & Register
-        </a>
+        <div className={styles.footerInner}>
+          <h2 className={`${styles.footerTitle} ${styles.serif}`}>Reserve your spot today.</h2>
+          <p className={styles.footerSubtitle}>
+            Limited small-group places available to ensure highly interactive learning and personal attention.
+          </p>
+          
+          <div className={styles.footerActions}>
+            <a href={`mailto:${contactEmail}?subject=${freeSessionSubject}&body=${freeSessionBody}`} style={{...secondaryCtaStyle, color: 'white', borderColor: 'rgba(255,255,255,0.3)', width: 'auto'}}>
+              Book Free Readiness Session
+            </a>
+            <a href="#programs" style={{...primaryCtaStyle, width: 'auto'}}>
+              Select Full Bootcamp <span aria-hidden="true">→</span>
+            </a>
+          </div>
 
-        <div className={styles.footerBottom}>
-          <p>For custom arrangements, contact us directly at <a href={`mailto:${contactEmail}`} style={{ color: '#ea580c', textDecoration: 'none', fontWeight: '500' }}>{contactEmail}</a></p>
-          <p>© {new Date().getFullYear()} ScoreSprint. All rights reserved.</p>
+          <div className={styles.footerBottom}>
+            <p style={{ marginBottom: '0.5rem' }}>Questions? Contact us directly at <a href={`mailto:${contactEmail}`} style={{ color: '#ea580c', textDecoration: 'none', fontWeight: '600' }}>{contactEmail}</a></p>
+            <p>© {new Date().getFullYear()} ScoreSprint. All rights reserved.</p>
+          </div>
         </div>
       </footer>
     </main>
