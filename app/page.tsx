@@ -68,7 +68,7 @@ export default function HomePage() {
           Start IB Math with <span className={styles.heroTitleHighlight}>Confidence</span>, Not Panic.
         </h1>
         <p className={styles.heroSubtitle}>
-          Start with our free standalone readiness session, or dive into our comprehensive online bootcamps designed to help students entering MYP5 or DP1/CP1 refresh key skills and fill gaps.
+          Start with our free standalone readiness session, or dive into our comprehensive online bootcamps designed to help students entering MYP5 or DP1/CP1 excel from Day 1.
         </p>
         <div className={styles.heroButtons}>
           <a href="#free-session" style={{...primaryCtaStyle, width: 'auto'}}>
@@ -90,7 +90,7 @@ export default function HomePage() {
             📅 August 13 | Live Online
           </div>
           <h2 className={`${styles.serif} ${styles.freeSessionTitle}`}>
-            Free Readiness Session:<br/>How to Start MYP5 or DP Math Strong
+            Free Readiness Session:<br/>Navigating the first weeks of MYP5 or DP1 Math
           </h2>
           <p className={styles.freeSessionDescription}>
             A high-impact, completely standalone taster session covering common mistakes, course expectations, and the exact strategies needed to prepare effectively. No bootcamp registration required!
@@ -111,7 +111,7 @@ export default function HomePage() {
               </li>
               <li className={styles.freeSessionListItem}>
                 <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
-                <span className={styles.freeSessionListText}><strong>Strategic Advice</strong> on AA vs AI & MYP-to-DP</span>
+                <span className={styles.freeSessionListText}><strong>Strategic Advice</strong> on AA vs AI, HL vs SL & MYP-to-DP</span>
               </li>
               <li className={styles.freeSessionListItem}>
                 <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
@@ -146,15 +146,15 @@ export default function HomePage() {
         <div className={styles.trustGrid}>
           <div className={styles.trustCard}>
             <h3 className={styles.serif}>Small-Group Live Teaching</h3>
-            <p>Live online bootcamp with limited spots to keep the course interactive. Every session includes replay access so you never miss a concept.</p>
+            <p>Live online bootcamp with limited spots to keep the course interactive, Split between HL and SL. Every session includes access to recordings of the sessions so you never miss a concept.</p>
           </div>
           <div className={styles.trustCard}>
-            <h3 className={styles.serif}>Practical Preparation</h3>
-            <p>Designed specifically to prepare you for the crucial first weeks of school. Includes comprehensive study guides and take-home practice.</p>
+            <h3 className={styles.serif}>Two Streams for HL and SL</h3>
+            <p>Designed specifically to prepare you for the crucial first weeks of school in the level of your choice, along with in-depth explanations of AA vs AI.</p>
           </div>
           <div className={styles.trustCard}>
             <h3 className={styles.serif}>Accessible Anywhere</h3>
-            <p>Conducted fully online, making it perfect for students unable to attend in person due to late-summer travel or distance.</p>
+            <p>Conducted fully online, making it perfect for students anywhere in the world.</p>
           </div>
         </div>
       </section>
@@ -164,7 +164,7 @@ export default function HomePage() {
         <div className={`${styles.sectionHeader} ${styles.programsHeader}`}>
           <h2 className={`${styles.sectionTitle} ${styles.serif}`}>Full Bootcamp Options</h2>
           <p className={styles.sectionSubtitle}>
-            Ready to dive deeper? Choose the paid bootcamp package that fits your upcoming school year and preparation needs.
+            Ready to dive deeper? Choose the bootcamp package that fits your upcoming school year and preparation needs.
           </p>
         </div>
 
@@ -173,7 +173,7 @@ export default function HomePage() {
           {/* Column 1: MYP5 Launchpad */}
           <article className={styles.programCard}>
             <div className={styles.programCardHeader}>
-              <h2 className={`${styles.serif} ${styles.programCardTitle}`}>MYP5 Math Launchpad</h2>
+              <h2 className={`${styles.serif} ${styles.programCardTitle}`}>MYP5 Prep Course</h2>
               <div className={styles.programPriceRow}>
                 <span className={styles.programPriceValue}>€59</span>
                 <span className={styles.programDuration}>/ 1-Day</span>
@@ -202,7 +202,7 @@ export default function HomePage() {
           {/* Column 2: DP1 Core */}
           <article className={styles.programCard}>
             <div className={styles.programCardHeader}>
-              <h2 className={`${styles.serif} ${styles.programCardTitle}`}>DP1 Jumpstart Core</h2>
+              <h2 className={`${styles.serif} ${styles.programCardTitle}`}>DP1 Prep Core</h2>
               <div className={styles.programPriceRow}>
                 <span className={styles.programPriceValue}>€99</span>
                 <span className={styles.programDuration}>/ 2-Days</span>
@@ -215,9 +215,11 @@ export default function HomePage() {
               </p>
               <div className={styles.programListTitle}>What&apos;s Covered:</div>
               <ul className={styles.programFeatureList}>
-                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Essential Algebra & Logs</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Essential Algebra & Logarithms</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Functions & Trigonometry</li>
-                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> DP-style problem solving</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Introduction to Complex Numbers (HL only)</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Exclusive Graphic Display Calculator Demonstration</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> IB-style problem solving</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> MYP-to-DP transition guide</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Take-home materials & replays</li>
               </ul>
@@ -232,7 +234,7 @@ export default function HomePage() {
           <article className={`${styles.programCard} ${styles.programCardFeatured}`}>
             <div className={styles.programCardBadge}>Most Comprehensive</div>
             <div className={`${styles.programCardHeader} ${styles.programCardHeaderFeatured}`}>
-              <h2 className={`${styles.serif} ${styles.programCardTitle} ${styles.programCardTitleFeatured}`}>DP1 Jumpstart Plus</h2>
+              <h2 className={`${styles.serif} ${styles.programCardTitle} ${styles.programCardTitleFeatured}`}>DP1 Prep Plus</h2>
               <div className={styles.programPriceRow}>
                 <span className={`${styles.programPriceValue} ${styles.programPriceValueFeatured}`}>€139</span>
                 <span className={`${styles.programDuration} ${styles.programDurationFeatured}`}>/ 3-Days</span>
@@ -245,10 +247,11 @@ export default function HomePage() {
               </p>
               <div className={styles.programListTitle}>Everything in Core, Plus:</div>
               <ul className={styles.programFeatureList}>
-                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Extra refresher practice</li>
-                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Deeper AA/AI problem solving</li>
-                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> More guided exercises</li>
-                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> <strong>Exclusive:</strong> "Week-one rescue" Q&A after school starts</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Extra preparation for the most challenging topics in DP Math</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Introduction to Calculus (HL Only)</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Deeper AA/AI problem solving approaches</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> 30 Minute Q&A about IB and choosing the right subject package</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> <strong>Exclusive:</strong> &quot;Week-one rescue&quot; Q&A after school starts</li>
               </ul>
               {/* TODO: Update URL below */}
               <a href="https://buy.stripe.com/8x27sM2lq5Rh6re6jz0ZW02" target="_blank" rel="noopener noreferrer" style={primaryCtaStyle}>
@@ -283,8 +286,8 @@ export default function HomePage() {
           {/* Right: Details List */}
           <div className={styles.detailsList}>
             <div className={styles.detailItem}>
-              <h4>Target Audience</h4>
-              <p>Students entering MYP5, DP1, or CP1 who want to eliminate the back-to-school transition shock.</p>
+              <h4>Who is this for</h4>
+              <p>Students entering MYP5, DP1, or CP1 who want to reduce the transition shock and excel from Day 1.</p>
             </div>
             <div className={styles.detailItem}>
               <h4>Location & Delivery</h4>
@@ -292,7 +295,7 @@ export default function HomePage() {
             </div>
             <div className={styles.detailItem}>
               <h4>Materials Included</h4>
-              <p>Comprehensive study guides, guided practice exercises, diagnostic questions, and take-home review materials.</p>
+              <p>Comprehensive slide show, recordings of the live streams, guided practice exercises, diagnostic questions, and a take-home study guide with practice questions.</p>
             </div>
             <div className={styles.detailItem}>
               <h4>Tuition</h4>
