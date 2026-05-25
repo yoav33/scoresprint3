@@ -1,23 +1,8 @@
 import React, { type CSSProperties } from 'react';
 import styles from './page.module.css';
 
-// TODO: Replace with your actual receiving email
-const contactEmail = "yoavgrinberg1@gmail.com"; 
-
-// Pre-formatted email templates for the Free Session
-const freeSessionSubject = encodeURIComponent("Registration Request: FREE Readiness Session (Aug 13)");
-const freeSessionBody = encodeURIComponent(`Hello,
-
-I would like to reserve a spot for the Free Readiness Session: "How to Start MYP5 or DP Math Strong" on August 13. Here are our details:
-%0D%0A %0D%0A
-Parent/Guardian Name: %0D%0A
-Student Name: %0D%0A
-Contact Phone Number: %0D%0A
-Entering Grade (MYP5, DP1, or CP1): %0D%0A
-How did you hear about us? %0D%0A
-%0D%0A
-Thank you,
-`);
+// TODO: Replace with your actual receiving email for general contact
+const contactEmail = "yoav@scoresprint.eu"; 
 
 // Reusable inline styles for upgraded CTAs
 const primaryCtaStyle: CSSProperties = {
@@ -124,7 +109,8 @@ export default function HomePage() {
              <p className={styles.freeSessionCtaText}>
                Spots are limited to keep the session interactive. Reserve yours early.
              </p>
-             <a href={`mailto:${contactEmail}?subject=${freeSessionSubject}&body=${freeSessionBody}`} style={{...primaryCtaStyle, fontSize: '1.2rem', padding: '20px 32px'}}>
+             {/* TODO: Update URL below */}
+             <a href="https://tally.so/r/GxQoAL" target="_blank" rel="noopener noreferrer" style={{...primaryCtaStyle, fontSize: '1.2rem', padding: '20px 32px'}}>
                Reserve Your Free Spot <span aria-hidden="true">→</span>
              </a>
              <p className={styles.freeSessionFinePrint}>
@@ -192,7 +178,6 @@ export default function HomePage() {
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Live teaching & guided practice</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Study guide & replay access</li>
               </ul>
-              {/* TODO: Update URL below */}
               <a href="https://buy.stripe.com/9B65kE6BGgvVaHu6jz0ZW00" target="_blank" rel="noopener noreferrer" style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
                 Register for MYP5
               </a>
@@ -223,7 +208,6 @@ export default function HomePage() {
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> MYP-to-DP transition guide</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Take-home materials & replays</li>
               </ul>
-              {/* TODO: Update URL below */}
               <a href="https://buy.stripe.com/14A28s7FKenN8zm37n0ZW01" target="_blank" rel="noopener noreferrer" style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
                 Register for Core
               </a>
@@ -253,7 +237,6 @@ export default function HomePage() {
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> 30 Minute Q&A about IB and choosing the right subject package</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> <strong>Exclusive:</strong> &quot;Week-one rescue&quot; Q&A after school starts</li>
               </ul>
-              {/* TODO: Update URL below */}
               <a href="https://buy.stripe.com/8x27sM2lq5Rh6re6jz0ZW02" target="_blank" rel="noopener noreferrer" style={primaryCtaStyle}>
                 Register for Plus
               </a>
@@ -314,7 +297,8 @@ export default function HomePage() {
           </p>
           
           <div className={styles.footerActions}>
-            <a href={`mailto:${contactEmail}?subject=${freeSessionSubject}&body=${freeSessionBody}`} style={{...secondaryCtaStyle, color: 'white', borderColor: 'rgba(255,255,255,0.3)', width: 'auto'}}>
+            {/* TODO: Update URL below */}
+            <a href="https://your-link-here.com" target="_blank" rel="noopener noreferrer" style={{...secondaryCtaStyle, color: 'white', borderColor: 'rgba(255,255,255,0.3)', width: 'auto'}}>
               Book Free Readiness Session
             </a>
             <a href="#programs" style={{...primaryCtaStyle, width: 'auto'}}>
