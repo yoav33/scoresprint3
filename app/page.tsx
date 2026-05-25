@@ -4,7 +4,7 @@ import styles from './page.module.css';
 // TODO: Replace with your actual receiving email
 const contactEmail = "yoavgrinberg1@gmail.com"; 
 
-// Pre-formatted email templates
+// Pre-formatted email templates for the Free Session
 const freeSessionSubject = encodeURIComponent("Registration Request: FREE Readiness Session (Aug 13)");
 const freeSessionBody = encodeURIComponent(`Hello,
 
@@ -16,39 +16,6 @@ Contact Phone Number: %0D%0A
 Entering Grade (MYP5, DP1, or CP1): %0D%0A
 How did you hear about us? %0D%0A
 %0D%0A
-Thank you,
-`);
-
-const mypSubject = encodeURIComponent("Registration Request: MYP5 Math Launchpad");
-const mypBody = encodeURIComponent(`Hello,
-
-I would like to register my child for the MYP5 Math Launchpad Course (€59). Here are our details:
-
-Parent/Guardian Name: %0D%0A 
-Student Name: %0D%0A
-Contact Phone Number: %0D%0A
-Current School: %0D%0A
-Any specific math concerns?: %0D%0A
-How did you hear about us? %0D%0A
-
-Thank you,
-`);
-
-const dpSubject = encodeURIComponent("Registration Request: DP1 Math Jumpstart");
-const dpBody = encodeURIComponent(`Hello,
-
-I would like to register my child for the DP1 Math Jumpstart Course. Here are our details:
-
-Parent/Guardian Name: %0D%0A
-Student Name: %0D%0A
-Contact Phone Number: %0D%0A
-Current School: %0D%0A
-How did you hear about us? %0D%0A
-
-Please indicate your preference (Keep one, delete the other):
-[ ] DP1 Math Jumpstart Plus - 3-Day Course (€139)
-[ ] DP1 Math Jumpstart Core - 2-Day Course (€99)
-
 Thank you,
 `);
 
@@ -225,7 +192,8 @@ export default function HomePage() {
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Live teaching & guided practice</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Study guide & replay access</li>
               </ul>
-              <a href={`mailto:${contactEmail}?subject=${mypSubject}&body=${mypBody}`} style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
+              {/* TODO: Update URL below */}
+              <a href="https://buy.stripe.com/9B65kE6BGgvVaHu6jz0ZW00" target="_blank" rel="noopener noreferrer" style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
                 Register for MYP5
               </a>
             </div>
@@ -253,7 +221,8 @@ export default function HomePage() {
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> MYP-to-DP transition guide</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Take-home materials & replays</li>
               </ul>
-              <a href={`mailto:${contactEmail}?subject=${dpSubject}&body=${dpBody}`} style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
+              {/* TODO: Update URL below */}
+              <a href="https://buy.stripe.com/14A28s7FKenN8zm37n0ZW01" target="_blank" rel="noopener noreferrer" style={{...primaryCtaStyle, backgroundColor: '#1e293b', borderColor: '#1e293b', boxShadow: 'none'}}>
                 Register for Core
               </a>
             </div>
@@ -281,7 +250,8 @@ export default function HomePage() {
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> More guided exercises</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> <strong>Exclusive:</strong> "Week-one rescue" Q&A after school starts</li>
               </ul>
-              <a href={`mailto:${contactEmail}?subject=${dpSubject}&body=${dpBody}`} style={primaryCtaStyle}>
+              {/* TODO: Update URL below */}
+              <a href="https://buy.stripe.com/8x27sM2lq5Rh6re6jz0ZW02" target="_blank" rel="noopener noreferrer" style={primaryCtaStyle}>
                 Register for Plus
               </a>
             </div>
