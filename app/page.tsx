@@ -31,6 +31,84 @@ const secondaryCtaStyle: CSSProperties = {
   boxShadow: 'none',
 };
 
+// New styling objects for improved padding and layout
+const tutorCardStyle: CSSProperties = {
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '48px 40px', // Uniform inner padding for the card, much better than 24px and zero on sections
+  backgroundColor: '#ffffff',
+  borderRadius: '12px',
+  boxShadow: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+};
+
+const profileRowStyle: CSSProperties = {
+  display: 'flex',
+  gap: '32px', // Larger gap for better separation
+  marginBottom: '24px', // Reduced gap before the main text section
+  justifyContent: 'center',
+  paddingLeft: '24px', // Slight inset to center more
+  paddingRight: '24px'
+};
+
+const individualProfileStyle: CSSProperties = {
+  flex: 1,
+  textAlign: 'center',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  paddingLeft: '16px', // Extra internal profile padding
+  paddingRight: '16px'
+};
+
+const profileImageStyle: CSSProperties = {
+  width: '96px', // Slightly larger images
+  height: '96px',
+  borderRadius: '50%',
+  objectFit: 'cover',
+  backgroundColor: '#e2e8f0',
+  marginBottom: '20px' // Clear space below the image, visible in image_0.png
+};
+
+const profileNameStyle: CSSProperties = {
+  margin: '0 0 8px 0', // More margin below name
+  fontSize: '1.125rem', // Slightly larger name
+  color: '#0f172a',
+  fontWeight: '600'
+};
+
+const profileCredentialStyle: CSSProperties = {
+  fontSize: '0.9rem',
+  color: '#64748b',
+  fontWeight: '500',
+  margin: '0 0 12px 0' // Bottom margin to separate from the link
+};
+
+// Helper function to generate a cool, matching private tutoring link
+const getTutoringLinkStyle = (color: string): CSSProperties => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '4px',
+  padding: '6px 14px',
+  fontSize: '0.85rem',
+  fontWeight: '600',
+  color: color,
+  border: `1.5px solid ${color}`,
+  borderRadius: '20px', // Pill shape
+  textDecoration: 'none',
+  transition: 'all 0.2s ease',
+  backgroundColor: 'transparent',
+});
+
+const tutorTextContentStyle: CSSProperties = {
+  textAlign: 'left', // Restored alignment for main text body
+  paddingLeft: '24px', // Align text area with profiles' inset
+  paddingRight: '24px'
+};
+
+const mainTitleStyle: CSSProperties = {
+  marginBottom: '24px', // Space after main title
+};
+
 export default function HomePage() {
   return (
     <main className={styles.main}>
@@ -52,8 +130,13 @@ export default function HomePage() {
         <h1 className={`${styles.heroTitle} ${styles.serif}`}>
           Start IB Math with <span className={styles.heroTitleHighlight}>Confidence</span>, Not Panic.
         </h1>
+        
+        <h1 className={styles.heroSlogan}>
+          IB Math Summer Bootcamp
+        </h1>
+        
         <p className={styles.heroSubtitle}>
-          Start with our free standalone readiness session, or dive into our comprehensive online bootcamps designed to help students entering MYP5 or DP1/CP1 excel from Day 1.
+          Start with our free standalone readiness session, or dive into our comprehensive online bootcamps designed to help students entering MYP5 or DP1/CP1 excel from Day 1 by covering the most challenging topics in MYP/DP math in advance.
         </p>
         <div className={styles.heroButtons}>
           <a href="#free-session" style={{...primaryCtaStyle, width: 'auto'}}>
@@ -96,10 +179,6 @@ export default function HomePage() {
               </li>
               <li className={styles.freeSessionListItem}>
                 <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
-                <span className={styles.freeSessionListText}><strong>Strategic Advice</strong> on AA vs AI, HL vs SL & MYP-to-DP</span>
-              </li>
-              <li className={styles.freeSessionListItem}>
-                <span style={{ color: '#ea580c', fontSize: '1.2rem' }}>✓</span>
                 <span className={styles.freeSessionListText}><strong>Live Q&A</strong> with expert tutors</span>
               </li>
             </ul>
@@ -136,7 +215,7 @@ export default function HomePage() {
           </div>
           <div className={styles.trustCard}>
             <h3 className={styles.serif}>Two Streams for HL and SL</h3>
-            <p>Designed specifically to prepare you for the crucial first weeks of school in the level of your choice, along with in-depth explanations of AA vs AI.</p>
+            <p>Designed specifically to prepare you for the crucial first weeks of school in the level of your choice, along with in-depth explanations of the most challenging topics in the DP Curriculum.</p>
           </div>
           <div className={styles.trustCard}>
             <h3 className={styles.serif}>Accessible Anywhere</h3>
@@ -202,6 +281,7 @@ export default function HomePage() {
               <ul className={styles.programFeatureList}>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Essential Algebra & Logarithms</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Functions & Trigonometry</li>
+                <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Coordinate Geometry and Quadratics (SL only)</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Introduction to Complex Numbers (HL only)</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> Exclusive Graphic Display Calculator Demonstration</li>
                 <li className={styles.programFeatureItem}><span style={{color: '#ea580c'}}>✓</span> IB-style problem solving</li>
@@ -253,13 +333,45 @@ export default function HomePage() {
         </div>
 
         <div className={styles.splitGrid}>
-          {/* Left: Tutor Info */}
-          <div className={styles.tutorBox}>
-            <div className={styles.tutorPlaceholder}>
-              <span>Instructor Profile</span>
+          {/* Left: Tutor Info Card */}
+          <div style={tutorCardStyle}>
+            
+            {/* Improved Individual Tutor Profiles Container */}
+            <div style={profileRowStyle}>
+              
+              {/* Tutor 1 */}
+              <div style={individualProfileStyle}>
+                <img 
+                  src="/1.png" /* Update this with your actual image path */
+                  style={{ ...profileImageStyle, border: '3px solid #1e293b' }} 
+                />
+                <h4 style={profileNameStyle}>Yoav Grinberg - MYP5 & SL</h4>
+                <span style={profileCredentialStyle}>Mechanical Engineering Student</span>
+                {/* Custom tutoring link */}
+                <a href="https://yoavgrinberg.com/tutoring" target="_blank" rel="noopener noreferrer" style={getTutoringLinkStyle('#1e293b')}>
+                  Private Tutoring <span aria-hidden="true" style={{ fontSize: '1rem', lineHeight: '1' }}>›</span>
+                </a>
+              </div>
+
+              {/* Tutor 2 */}
+              <div style={individualProfileStyle}>
+                <img 
+                  src="/2.png" /* Update this with your actual image path */
+                  style={{ ...profileImageStyle, border: '3px solid #1e293b' }} 
+                />
+                <h4 style={profileNameStyle}>Daniel Borovinsky - HL</h4>
+                <span style={profileCredentialStyle}>Applied Physics Student</span>
+                {/* Custom tutoring link */}
+                <a href="https://tutoringwithdaniel.com" target="_blank" rel="noopener noreferrer" style={getTutoringLinkStyle('#1e293b')}>
+                  Private Tutoring <span aria-hidden="true" style={{ fontSize: '1rem', lineHeight: '1' }}>›</span>
+                </a>
+              </div>
+
             </div>
-            <div className={styles.tutorContent}>
-              <h3 className={`${styles.serif}`}>UWCM DP Alumni & Expert Tutors</h3>
+
+            {/* Improved text alignment and spacing */}
+            <div style={tutorTextContentStyle}>
+              <h3 className={`${styles.serif}`} style={mainTitleStyle}>UWCM DP Alumni & Expert Tutors</h3>
               <p>
                 Our live online bootcamps are led by highly experienced tutors and UWC Maastricht DP alumni who excelled in AI HL and AA HL. They know exactly what the leap from MYP to DP entails, common pitfalls to avoid, and how to effectively bridge the gap.
               </p>
@@ -298,7 +410,7 @@ export default function HomePage() {
           
           <div className={styles.footerActions}>
             {/* TODO: Update URL below */}
-            <a href="https://your-link-here.com" target="_blank" rel="noopener noreferrer" style={{...secondaryCtaStyle, color: 'white', borderColor: 'rgba(255,255,255,0.3)', width: 'auto'}}>
+            <a href="https://tally.so/r/GxQoAL" target="_blank" rel="noopener noreferrer" style={{...secondaryCtaStyle, color: 'white', borderColor: 'rgba(255,255,255,0.3)', width: 'auto'}}>
               Book Free Readiness Session
             </a>
             <a href="#programs" style={{...primaryCtaStyle, width: 'auto'}}>
