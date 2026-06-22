@@ -241,7 +241,7 @@ export default function HomePage() {
               <h2 className={`${styles.serif} ${styles.programCardTitle}`}>MYP5 Prep Course</h2>
               <div className={styles.programPriceRow}>
                 <span className={styles.programPriceValue}>€59</span>
-                <span className={styles.programDuration}>/ 1-Day</span>
+                <span className={styles.programDuration}>/ Aug 19 (1-Day)</span>
               </div>
             </div>
             
@@ -269,7 +269,7 @@ export default function HomePage() {
               <h2 className={`${styles.serif} ${styles.programCardTitle}`}>DP1 Prep Core</h2>
               <div className={styles.programPriceRow}>
                 <span className={styles.programPriceValue}>€99</span>
-                <span className={styles.programDuration}>/ 2-Days</span>
+                <span className={styles.programDuration}>/ Aug 19-20 (2-Days)</span>
               </div>
             </div>
 
@@ -301,7 +301,7 @@ export default function HomePage() {
               <h2 className={`${styles.serif} ${styles.programCardTitle} ${styles.programCardTitleFeatured}`}>DP1 Prep Plus</h2>
               <div className={styles.programPriceRow}>
                 <span className={`${styles.programPriceValue} ${styles.programPriceValueFeatured}`}>€139</span>
-                <span className={`${styles.programDuration} ${styles.programDurationFeatured}`}>/ 3-Days</span>
+                <span className={`${styles.programDuration} ${styles.programDurationFeatured}`}>/ Aug 19-21 (3-Days)</span>
               </div>
             </div>
 
